@@ -231,6 +231,7 @@ GameObject:
   - component: {fileID: 456355854}
   - component: {fileID: 456355853}
   - component: {fileID: 456355852}
+  - component: {fileID: 456355856}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -319,6 +320,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &456355856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456355851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 393cea6f75c9ceb4ba5cc838c410f137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MobileObjects:
+  - {fileID: 1331223940}
 --- !u!1 &1298893636
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,9 +345,8 @@ GameObject:
   - component: {fileID: 1298893638}
   - component: {fileID: 1298893637}
   - component: {fileID: 1298893639}
-  - component: {fileID: 1298893640}
   m_Layer: 0
-  m_Name: Manager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -350,6 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e6526b8aff2fc44c98ec46e1d29e685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inverted: 0
 --- !u!4 &1298893638
 Transform:
   m_ObjectHideFlags: 0
@@ -410,20 +425,6 @@ MonoBehaviour:
   m_DefaultActionMap: PlayerControlls
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &1298893640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1298893636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 393cea6f75c9ceb4ba5cc838c410f137, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MobileObjects:
-  - {fileID: 1331223940}
 --- !u!1 &1331223940
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,7 +442,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1331223941
 RectTransform:
   m_ObjectHideFlags: 0
@@ -797,7 +798,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
