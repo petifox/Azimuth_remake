@@ -5,17 +5,37 @@ using UnityEngine.UI;
 
 public class OxygenController : MonoBehaviour
 {
-    public float speed;
+    public static OxygenController Instance;
     public Slider slider;
-    // Start is called before the first frame update
-    void Start()
+    [Space]
+    public bool MovementMatters;
+    public float MovementSpeed;
+    [Space]
+    public bool TimeMatters;
+    public float TimeSpeed;
+    private void OnEnable()
     {
-        
+        DontDestroyOnLoad(this.gameObject);
+        if (Instance == null)
+            Instance = this;
+    }
+    private void OnDisable()
+    {
+        Instance = null;
     }
 
     // Update is called once per frame
     void Update()
     {
-        slider.value -= Mathf.Abs(Mathf.Sin(Time.time) * speed * Time.deltaTime);
+        if (TimeMatters)
+            AddRemoveOxygen(Mathf.Abs(Mathf.Sin(Time.time) * TimeSpeed * Time.deltaTime));
+
+        if (MovementMatters)
+            AddRemoveOxygen((Mathf.Abs(MasterInput.MovementVector.x) + Mathf.Abs(MasterInput.MovementVector.y)) * -MovementSpeed * Time.deltaTime);
+    }
+
+    public void AddRemoveOxygen(float amount)
+    {
+        slider.value += amount;
     }
 }
