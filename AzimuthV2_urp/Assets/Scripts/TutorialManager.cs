@@ -18,7 +18,7 @@ public class TutorialManager : MonoBehaviour
     }
     public void StartTutorial()
     {
-        Debug.Log("Move left");
+        Debug.Log("Move right");
         StartCoroutine(InvertIfNeeded());
     }
     IEnumerator InvertIfNeeded()
@@ -29,12 +29,12 @@ public class TutorialManager : MonoBehaviour
         }
         if(MasterInput.MovementVector.x > 0)
         {
-            MasterInput.Invert(true);
+            MasterInput.Invert(false);
             Debug.Log("inverted");
         }
         else
         {
-            MasterInput.Invert(false);
+            MasterInput.Invert(true);
             Debug.Log("regular");
         }
         
